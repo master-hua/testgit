@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+     <typeAliases> 
+       
+        <typeAlias alias="test" type="com.test.TestEntity"/> 
+        
+    </typeAliases> 
+    
+   <!--  <plugins>
+        <plugin interceptor="">
+          <property name="dialect" value="MYSQL"/>
+           <property name="pageSqlId" value=".*Page$" />  
+        </plugin>
+    </plugins> -->
+<!--     属性dialect指示数据库类型，目前只支持mysql和oracle两种数据库。其中，属性pageSqlId指示拦截的规则，以正则方式匹配。 -->
+     
+     
+     
+     
+     <mappers>
+         <mapper resource="com/test/Test.xml"/>
+    </mappers>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <!--  <properties  resource="SqlMap.properties"/> -->
+   <!--  <environments default="development">
+        <environment id="development"> 
+        <transactionManager type="JDBC"   />
+            <dataSource type="POOLED" >
+            <property name="driver" value="com.mysql.jdbc.Driver"/>
+            <property name="url" value="jdbc:mysql://localhost:3306/hcipdb?useUnicode=true&amp;characterEncoding=utf8" />
+            <property name="username" value="root"/>
+            <property name="password" value="root"/>
+            </dataSource>
+        </environment>
+    </environments>
+    
+     -->
+</configuration> 
+
+
+

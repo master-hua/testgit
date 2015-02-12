@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.test.TestManager">
+
+	<!-- ATTACHMENT INSERT -->
+
+	<insert id="insert" parameterType="com.test.TestEntity">
+		  insert into test (a,b,c,d,e) values ( #{a,jdbcType=VARCHAR}, #{b,jdbcType=VARCHAR}, #{c,jdbcType=INTEGER}, #{d,jdbcType=DOUBLE},#{e,jdbcType=DOUBLE})
+	</insert>
+<resultMap id="BaseResultMap" type="com.test.TestEntity">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="CREATEDATETIME" jdbcType="VARCHAR" property="createdatetime" />
+    <result column="MODIFYDATETIME" jdbcType="VARCHAR" property="modifydatetime" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="PWD" jdbcType="VARCHAR" property="pwd" />
+    <result column="CREATE_TIME" jdbcType="DATE" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="DATE" property="updateTime" />
+  </resultMap>
+  
+  <resultMap id="BaseResultMap1" type="com.test.TestEntity">
+    <id column="a" jdbcType="VARCHAR" property="a" />
+       <id column="b" jdbcType="VARCHAR" property="b" />
+  </resultMap>
+	
+	<select id="selectTestByCondition" parameterType="test"  resultMap="BaseResultMap1">
+		select * from test where 1=1
+		     <if test="a!=null">
+                 and a=#{a,jdbcType=VARCHAR}
+             </if>
+             
+		     <if test="b!=null">
+                 and b=#{b,jdbcType=VARCHAR}
+             </if>
+		
+	</select>
+	
+	
+<!-- 	<select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from s_userinfo
+    where uuid = #{uuid,jdbcType=VARCHAR}
+  </select> -->
+</mapper>
